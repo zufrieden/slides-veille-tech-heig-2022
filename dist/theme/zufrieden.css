@@ -388,6 +388,11 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-size: 0.4em;
 }
 
+mark {
+  background-color: #b300f9;
+  color: #f6edf8;
+}
+
 #ikigai {
   width: 50vh;
 }

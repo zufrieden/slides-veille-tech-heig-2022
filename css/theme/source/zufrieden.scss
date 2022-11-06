@@ -78,6 +78,11 @@ $selectionBackgroundColor:#f6edf8;
 .step-icon{ font-size: 2em; }
 .step-name{ font-size: 0.4em; }
 
+mark{
+  background-color: $linkColor;
+  color: $mainColor;
+}
+
 // mark{
 //   position: relative;
 //   background-color: transparent;
