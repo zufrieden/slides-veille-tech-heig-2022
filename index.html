@@ -1700,21 +1700,63 @@ data-background-size="contain">
 						
 						<section>
 							<h1 class="student m49-1">Traber Sébastien</h1>
-							<h2>mon domaine ...</h2>
+							<h2>Développement web</h2>
 						</section>
 						<section>
-							<h2>Mon sujet</h2>
-							<h3>Ma source</h3>
+							<h2>Zod Makes TypeScript Even Better</h2>
+							<h3>
+              <a href="https://www.youtube.com/watch?v=9UVPk0Ulm6U&t=174s&ab_channel=WebDevSimplified">Zod Makes TypeScript Even Better</a>
+              </h3>
 							<h3>Pourquoi ?</h3>
+              <p>Un outils intéressant pour gagner du temps lors de la validation de formulaire</p>
 						</section>
 						<section>
-							Slide 1
+              <p>une librairie typescript pour valider des données. Typiquement utile pour la validation de formaulaire mais pas seulement. Zod est disigné pour être developer-friendly.</p>
+              <h3>Les aventages</h3>
+              <ul>
+                <li>Zero dépendences</li>
+                <li>Fonctionne dans node.js et touts les browser moderne</li>
+                <li>Prend très peu de place</li>
+                <li>Concis</li>
+                <li>Fonctionne aussi avec javascript</li>
+              </ul>
 						</section>
 						<section>
-							Slide 2
+              <h3>Créer un simple schéma</h3>
+              <pre>
+              <code>
+import { z } from "zod";
+
+// creating a schema for strings
+const mySchema = z.string();
+
+// parsing
+mySchema.parse("tuna"); // => "tuna"
+mySchema.parse(12); // => throws ZodError
+
+// "safe" parsing (doesn't throw error if validation fails)
+mySchema.safeParse("tuna"); // => { success: true; data: "tuna" }
+mySchema.safeParse(12); // => { success: false; error: ZodError }
+              </code>
+              </pre>
 						</section>
 						<section>
-							Slide 3
+              <h3>Créer un schéma pour un objet</h3>
+              <pre>
+              <code>
+import { z } from "zod";
+
+const User = z.object({
+  username: z.string(),
+});
+
+User.parse({ username: "Ludwig" });
+
+// extract the inferred type
+type User = z.infer<typeof User>;
+// { username: string }
+              </code>
+              </pre>
 						</section>
 						
 						<!-- @@ -->
