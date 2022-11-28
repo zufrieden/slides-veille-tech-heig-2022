@@ -947,7 +947,68 @@
 						<p>Identifier pour votre domaine : les réseaux, les acteurs, les événements qui informent</p>
 						<p><mark>Perdez-vous un peu</mark> dans la toile 🕵️‍♀️</p>
 						<p style="font-size:0.6em;">Notez les URLs, les façons de s'abonner (newsletter, RSS, follow on twitter, youtube, instagram...)<br/>Rendu : Commencez le 1er article qui liste les émetteurs·trices et sources de votre veille (en expliquant pourquoi vous les avez choisis)</p>
-					</section>					
+					</section>
+					<section>
+						<table style="font-size:0.4em;margin-top:1em;">
+							<tr>
+								<td width="30%">
+									<h4>
+										Livrable attendu
+									</h4>
+								</td>
+								<td>
+									<h3>Blog traitant de votre domaine de veille</h3>
+									<p>4 articles (résumé des informations dénichées), 1 article (Explication du système d'écoute mis en place) et 1 article (expérimentation réalisée)</p>
+									<p>Une page "À propos" qui explique votre domaine, ce qui vous lie à ce domaine (Ikigai) et les taxonomies</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h4>
+										90% – contenu
+									</h4>
+								</td>
+								<td>
+									<p>
+										✅ Le domaine est en relation avec votre Ikigai, ainsi que les taxonomies sont expliqués sur une page <strong>À propos</strong>.
+									</p>
+									<p>
+										✅ Les 6 articles sont en relation avec le domaine (dont 1 sur une expérimentation et 1 avec le système et la liste des sources d'écoute).
+									</p>
+									<p>
+										✅ Le contenu des articles cite la/les sources et explique en quoi ils sont intéressants pour vous et votre domaine et à quel moment cela vous sera utile.
+									</p>																				
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h4>
+										10% – technique, la forme
+									</h4>
+								</td>
+								<td>
+									<p>
+										✅ Le site est généré avec Hugo
+									</p>
+									<p>
+										✅ Le thème est bien choisi (il correspond au domaine)
+									</p>
+									<p>
+										✅ Le site est hébergé sur github et se génére via Github Actions
+									</p>	
+								</td>
+							</tr>							
+						</table>
+						<aside class="notes">
+							On aura l'occasion d'en reparler (je vous recommuniquerais ce tableau)<br/>
+							L'évaluation du cours me permet de voir si l'objectif est atteint. J'insiste sur : <br/>
+							- Je veux être bien sûr que c'est le domaine qui vous intéresse<br/>
+							- Je serai disponible pour en discuter si vous avez de la peine à en trouver un ou le définir<br/>
+							- Je m'intéresse au contenu mais surtout comment vous l'aurez trouvé et ce que vous en avez apprit <br/>
+							- Je veux aussi savoir pourquoi vous avez choisi celui-ci<br/>
+							- Peu de points sur la technique (Vous ne serez pas tous des développeurs, mais vous devez comprendre ce qui est en jeu).
+						</aside>
+					</section>						
 					<section data-background="src/mindmap_css_search.png" data-background-size="contain" data-background-color="#ddd">
 						<aside class="notes">
 							<h3>Exemple</h3>
@@ -1187,15 +1248,34 @@
 					<section>
 						<h1>🎙</h1>
 					</section>
+					<section>
+						<h3>Compréhension de <code>git</code></h3>
+					</section>
+					<section data-background-image="src/git.png" data-background-color="white" data-background-size="contain">
+					</section>
+					<section>
+						<h3><code>git</code> ≠ <a href="https://github.com">github.com</a></h3>
+					</section>
+					<section data-background-image="src/linus.jpg" data-background-size="cover">
+						<aside class="notes">
+							Linus ne voulait pas utiliser Mercrurial<br/>
+							et plus non plus SVN<br/>
+							Du coup il a créé git
+						</aside>
+					</section>
 					<section data-background-image="src/fork.png" data-background-size="contain">
 						<h3>
 							<a href="https://github.com/zufrieden/slides-veille-tech-heig-2022">github.com/zufrieden/slides-veille-tech-heig-2022</a>
 						</h3>
 					</section>
 					<section data-background-image="src/index_slides.png" data-background-size="contain">
-					</section>					
+					</section>
+					<section data-background-image="src/fork1.png" data-background-size="contain">
+					</section>
+					<section data-background-image="src/fork2.png" data-background-size="contain">
+					</section>															
 					<section>
-						<pre><code>
+						<pre><code data-line-numbers="2-5|6-10|11-13|14-16">
 <section>
 	<h1 class="student m49-1">Prénom Nom</h1>
 	<h2>mon domaine ...</h2>
@@ -1205,10 +1285,11 @@
 	<h3>Ma source</h3>
 	<h3>Pourquoi ?</h3>
 </section>
-<section>
+<section >
 	Slide 1
 </section>
-<section>
+<section data-background-image="https://monsite.com/monimage.png" 
+data-background-size="contain">
 	Slide 2
 </section>
 <section>
@@ -1217,11 +1298,19 @@
 						</code></pre>
 					</section>
 					<section>
-						<pre><code>
-<aside class="notes">
-vos notes de présentation
-</aside>						
+						<pre><code data-line-numbers="4-6">
+<section>
+  <h3>Slide 3</h3>
+  <aside class="notes">
+    vos notes de présentation
+  </aside>	
+</section>					
 						</code></pre>
+					</section>
+					<section>
+						<code>data-background-image="https://monsite.com/monimage.png" 
+						data-background-size="contain"
+						</code>
 					</section>
 				</section>
 				
