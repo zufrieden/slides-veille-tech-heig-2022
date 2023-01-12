@@ -3305,6 +3305,83 @@ Press Ctrl+C to stop</code></pre>
 							</li>
 						</ul>
 					</section>
+					<section>
+						<h2>Hosting GitHub</h2>
+						<p>
+							Documentation complète 
+							<a href="https://pages.github.com/">pages.github.com</a>
+						</p>							
+					</section>
+					<section data-background-image="src/veille_github_actions_1.png" data-background-size="contain">
+						<aside class="notes"></aside>
+					</section>
+					<section data-background-image="src/veille_github_actions_2.png" data-background-size="contain">
+						<aside class="notes"></aside>
+					</section>
+					<section data-background-image="src/veille_github_actions_3.png" data-background-size="contain">
+						<aside class="notes"></aside>
+					</section>
+					<section data-background-image="src/veille_github_actions_4.png" data-background-size="contain">
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h3>Actions Hugo</h3>
+						<p>
+							<a href="https://github.com/peaceiris/actions-hugo">github.com/peaceiris/actions-hugo</a>	
+						</p>
+						<p>
+							<mark>
+								.github/workflows/gh-pages.yml
+							</mark>
+						</p>
+					</section>					
+					<section>
+						<pre><code>
+name: github pages
+
+on:
+  push:
+	branches:
+	  - main  # Set a branch to deploy
+
+...
+						</code></pre>
+					</section>
+				<section>
+					<pre><code>
+...
+
+jobs:
+	deploy:
+		runs-on: ubuntu-18.04
+		steps:
+			- uses: actions/checkout@v2
+				with:
+				  submodules: true 
+				  fetch-depth: 0
+
+			- name: Setup Hugo
+				uses: peaceiris/actions-hugo@v2
+				with:
+					hugo-version: 'latest'
+
+...
+					</code></pre>
+				</section>
+				<section>
+					<pre><code>
+...
+
+- name: Build
+	run: hugo --minify
+
+- name: Deploy
+	uses: peaceiris/actions-gh-pages@v3
+	with:
+		github_token: ${{ secrets.GITHUB_TOKEN }}
+		publish_dir: ./public%  
+					</code></pre>
+				</section>							
 				</section>
 
 				<!-- ## ⏳L'épreuve du temps -->
@@ -3313,6 +3390,96 @@ Press Ctrl+C to stop</code></pre>
 					Courbe de la Hype
 					notion de "tout va trop vite" 
 				 -->
+				<section>
+					<section>
+						<h1>Welcome back<sup>4/5</sup></h1>
+						<h2>Bonne année !</h2>
+					</section>
+					<section>
+						<h2>Au menu 👨🏻‍🍳</h2>
+						<ol class="steps">
+							<li class="fragment fade-up">
+								<span class="step-icon">⏳ <span style="font-size:40%">et</span> 💡</span>
+								<strong class="step-name">Théorie</strong>
+							</li>
+							<li class="fragment fade-up">
+								<span class="step-icon">🌏</span>
+								<strong class="step-name">Déployer</strong>
+							</li>
+							<li class="fragment fade-up">
+								<span class="step-icon">✍️</span>
+								<strong class="step-name">Articles</strong>
+							</li>
+						</ol>
+						<aside class="notes">
+							Nous allons voir la théorie de l'épreuve du temps et l'experimentation/exploitation de la veille !<br/>
+							Finaliser installation et configuration de HUGO pour générer votre site web<br/>
+							Le déployer gratuitement sur Github pages<br/>
+							Et vous laisser du temps pour commencer/continuer la rédaction des articles
+						</aside>
+					</section>
+					<section>
+						<table style="font-size:0.4em;margin-top:1em;">
+							<tr>
+								<td width="30%">
+									<h4>
+										Livrable attendu
+									</h4>
+								</td>
+								<td>
+									<h3>Blog traitant de votre domaine de veille</h3>
+									<p>4 articles (résumé des informations dénichées), 1 article (Explication du système d'écoute mis en place) et 1 article (expérimentation réalisée)</p>
+									<p>Une page "À propos" qui explique votre domaine, ce qui vous lie à ce domaine (Ikigai) et les taxonomies</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h4>
+										90% – contenu
+									</h4>
+								</td>
+								<td>
+									<p>
+										✅ Le domaine est en relation avec votre Ikigai, ainsi que les taxonomies sont expliqués sur une page <strong>À propos</strong>.
+									</p>
+									<p>
+										✅ Les 6 articles sont en relation avec le domaine (dont 1 sur une expérimentation et 1 avec le système et la liste des sources d'écoute).
+									</p>
+									<p>
+										✅ Le contenu des articles cite la/les sources et explique en quoi ils sont intéressants pour vous et votre domaine et à quel moment cela vous sera utile.
+									</p>																				
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h4>
+										10% – technique, la forme
+									</h4>
+								</td>
+								<td>
+									<p>
+										✅ Le site est généré avec Hugo
+									</p>
+									<p>
+										✅ Le thème est bien choisi (il correspond au domaine)
+									</p>
+									<p>
+										✅ Le site est hébergé sur github et se génére via Github Actions
+									</p>	
+								</td>
+							</tr>							
+						</table>
+						<aside class="notes">
+							On aura l'occasion d'en reparler (je vous recommuniquerais ce tableau)<br/>
+							L'évaluation du cours me permet de voir si l'objectif est atteint. J'insiste sur : <br/>
+							- Je veux être bien sûr que c'est le domaine qui vous intéresse<br/>
+							- Je serai disponible pour en discuter si vous avez de la peine à en trouver un ou le définir<br/>
+							- Je m'intéresse au contenu mais surtout comment vous l'aurez trouvé et ce que vous en avez apprit <br/>
+							- Je veux aussi savoir pourquoi vous avez choisi celui-ci<br/>
+							- Peu de points sur la technique (Vous ne serez pas tous des développeurs, mais vous devez comprendre ce qui est en jeu).
+						</aside>
+					</section>		
+				</section>									
 				<section>
 					<section>
 						<ol class="steps">
@@ -3384,7 +3551,7 @@ Press Ctrl+C to stop</code></pre>
 							<title>Courbe de la diffusion des innovations</title>
 							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<g id="Artboard">
-									<path d="M37,904 L37,858.834746 L51.8076328,858.661359 C536.97379,847.256234 678.682924,277 961,277 L960.000017,277.020043 C960.000011,277.013362 960.000006,277.006681 960,277 L960.5,277.01 L961,277 C960.999994,277.006681 960.999989,277.013362 960.999983,277.020043 L960,277 C1242.31708,277 1384.02621,847.256234 1869.19237,858.661359 L1884,858.834746 L1884,904 L37,904 Z" id="Combined-Shape" fill="#052A3F"></path>
+									<path d="M37,904 L37,858.834746 L51.8076328,858.661359 C536.97379,847.256234 678.682924,277 961,277 L960.000017,277.020043 C960.000011,277.013362 960.000006,277.006681 960,277 L960.5,277.01 L961,277 C960.999994,277.006681 960.999989,277.013362 960.999983,277.020043 L960,277 C1242.31708,277 1384.02621,847.256234 1869.19237,858.661359 L1884,858.834746 L1884,904 L37,904 Z" id="Combined-Shape" fill="#b300f9"></path>
 									<line x1="324.5" y1="799.5" x2="324.5" y2="891.334416" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
 									<line x1="632.5" y1="522.5" x2="632.5" y2="891.335118" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
 									<line x1="940.5" y1="289.5" x2="940.5" y2="892.335409" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
@@ -3447,6 +3614,50 @@ document.body.appendChild(document.createElement('p'))
 							<p style="color:red;">@push - almanac web 2022 - https://almanac.httparchive.org/en/2022/javascript</p>
 						</aside>
 					</section>
+<section>
+						<svg width="100%" height="auto" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<title>Courbe de la diffusion des innovations</title>
+							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="Artboard">
+									<path d="M37,904 L37,858.834746 L51.8076328,858.661359 C536.97379,847.256234 678.682924,277 961,277 L960.000017,277.020043 C960.000011,277.013362 960.000006,277.006681 960,277 L960.5,277.01 L961,277 C960.999994,277.006681 960.999989,277.013362 960.999983,277.020043 L960,277 C1242.31708,277 1384.02621,847.256234 1869.19237,858.661359 L1884,858.834746 L1884,904 L37,904 Z" id="Combined-Shape" fill="#b300f9"></path>
+									<line x1="324.5" y1="799.5" x2="324.5" y2="891.334416" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
+									<line x1="632.5" y1="522.5" x2="632.5" y2="891.335118" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
+									<line x1="940.5" y1="289.5" x2="940.5" y2="892.335409" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
+									<line x1="1250.5" y1="480.5" x2="1250.5" y2="888.335456" id="Line" stroke="#f7ece6" stroke-width="3" stroke-linecap="round"></line>
+									<text id="34%-Early-majority" font-family="Helvetica-Bold, Helvetica" font-size="26" font-weight="bold" fill="#f7ece6">
+										<tspan x="763.482422" y="617">34%</tspan>
+										<tspan x="811.517578" y="617" font-family="Helvetica" font-weight="normal"> </tspan>
+										<tspan x="760.160156" y="646" font-family="Helvetica" font-weight="normal">Early</tspan>
+										<tspan x="745.494141" y="675" font-family="Helvetica" font-weight="normal">majority</tspan>
+									</text>
+									<text id="34%-Late-majority" font-family="Helvetica-Bold, Helvetica" font-size="26" font-weight="bold" fill="#f7ece6">
+										<tspan x="1073.48242" y="603">34%</tspan>
+										<tspan x="1121.51758" y="603" font-family="Helvetica" font-weight="normal"> </tspan>
+										<tspan x="1074.14453" y="632" font-family="Helvetica" font-weight="normal">Late</tspan>
+										<tspan x="1055.49414" y="661" font-family="Helvetica" font-weight="normal">majority</tspan>
+									</text>
+									<text id="16%-Laggards" font-family="Helvetica-Bold, Helvetica" font-size="26" font-weight="bold" fill="#f7ece6">
+										<tspan x="1376.48242" y="770">16%</tspan>
+										<tspan x="1424.51758" y="770" font-family="Helvetica" font-weight="normal"> </tspan>
+										<tspan x="1350.46094" y="799" font-family="Helvetica" font-weight="normal">Laggards</tspan>
+									</text>
+									<text id="13.5%-Early-adopters" font-family="Helvetica-Bold, Helvetica" font-size="26" font-weight="bold" fill="#f7ece6">
+										<tspan x="439.474609" y="773">13.5%</tspan>
+										<tspan x="507.525391" y="773" font-family="Helvetica" font-weight="normal"> </tspan>
+										<tspan x="446.160156" y="802" font-family="Helvetica" font-weight="normal">Early</tspan>
+										<tspan x="426.800781" y="831" font-family="Helvetica" font-weight="normal">adopters</tspan>
+									</text>
+									<text id="2.5%-Innovators" font-family="Helvetica-Bold, Helvetica" font-size="26" font-weight="bold" fill="#f7ece6">
+										<tspan x="92.78125" y="888">2.5%</tspan>
+										<tspan x="147.484375" y="888" font-family="Helvetica" font-weight="normal"> Innovators</tspan>
+									</text>
+								</g>
+							</g>
+						</svg>
+						<aside class="notes">
+							Courbe de la diffusion des innovations selon Everett Rogers (publié en 1962)
+						</aside>
+					</section>					
 					<section>
 						<svg width="100%" height="auto" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<title>Courbe de la hype</title>
@@ -3780,6 +3991,76 @@ document.body.appendChild(document.createElement('p'))
 						</aside>
 					</section>
 					<section>
+						<h1>🚧</h1>
+						<h2>Exercice pratique nº6</h2>
+						<p>Jusqu'à la fin du cours</p>
+						<ul>
+							<li>Création d'un prototype pour expérimenter</li>
+							<li>Rédaction de l'article "lesson apprise"</li>
+						</ul>
+					</section>
+	<section>
+						<table style="font-size:0.4em;margin-top:1em;">
+							<tr>
+								<td width="30%">
+									<h4>
+										Livrable attendu
+									</h4>
+								</td>
+								<td>
+									<h3>Blog traitant de votre domaine de veille</h3>
+									<p>4 articles (résumé des informations dénichées), 1 article (Explication du système d'écoute mis en place) et 1 article (expérimentation réalisée)</p>
+									<p>Une page "À propos" qui explique votre domaine, ce qui vous lie à ce domaine (Ikigai) et les taxonomies</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h4>
+										90% – contenu
+									</h4>
+								</td>
+								<td>
+									<p>
+										✅ Le domaine est en relation avec votre Ikigai, ainsi que les taxonomies sont expliqués sur une page <strong>À propos</strong>.
+									</p>
+									<p>
+										✅ Les 6 articles sont en relation avec le domaine (dont 1 sur une expérimentation et 1 avec le système et la liste des sources d'écoute).
+									</p>
+									<p>
+										✅ Le contenu des articles cite la/les sources et explique en quoi ils sont intéressants pour vous et votre domaine et à quel moment cela vous sera utile.
+									</p>																				
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h4>
+										10% – technique, la forme
+									</h4>
+								</td>
+								<td>
+									<p>
+										✅ Le site est généré avec Hugo
+									</p>
+									<p>
+										✅ Le thème est bien choisi (il correspond au domaine)
+									</p>
+									<p>
+										✅ Le site est hébergé sur github et se génére via Github Actions
+									</p>	
+								</td>
+							</tr>							
+						</table>
+						<aside class="notes">
+							On aura l'occasion d'en reparler (je vous recommuniquerais ce tableau)<br/>
+							L'évaluation du cours me permet de voir si l'objectif est atteint. J'insiste sur : <br/>
+							- Je veux être bien sûr que c'est le domaine qui vous intéresse<br/>
+							- Je serai disponible pour en discuter si vous avez de la peine à en trouver un ou le définir<br/>
+							- Je m'intéresse au contenu mais surtout comment vous l'aurez trouvé et ce que vous en avez apprit <br/>
+							- Je veux aussi savoir pourquoi vous avez choisi celui-ci<br/>
+							- Peu de points sur la technique (Vous ne serez pas tous des développeurs, mais vous devez comprendre ce qui est en jeu).
+						</aside>
+					</section>					
+					<section>
 						<h1>🧘‍♀️</h1>
 						<h2>Avoir confiance en votre système</h2>
 						<aside class="notes">
@@ -3788,8 +4069,25 @@ document.body.appendChild(document.createElement('p'))
 					</section>
 				</section>
 				
-				<!-- ## Conclusion du talk -->
+				<!-- ## Conclusion -->
 				<section>
+				<section>
+						<h2>🧪 Objectif atteint ?</h2>
+					<ul>
+						<li class="fragment fade-up">Importance de la veille</li>
+						<li class="fragment fade-up">Prendre du recule sur votre profession</li>
+						<li class="fragment fade-up">Mécanismes de la gestion des connaissances</li>
+						<li class="fragment fade-up">Trouver <strong>votre système</strong></li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Vous faire prendre conscience de l'importance de la veille pour votre parcours professionnel</li>
+							<li>Recule sur la profession des médias, la transformation digitale et les technologies de l'information. Vous faire prendre conscience des effets du temps qui passe</li>
+							<li>Comprendre les mécanismes de la veille et de la gestion des connaissances personnelles</li>
+							<li>Vous aider à trouver votre système</li>
+						</ul>
+					</aside>
+					</section>
 					<section>
 						<h3>Veille technologique</h3>
 						<ol class="steps" style="margin: 2em 0;">
